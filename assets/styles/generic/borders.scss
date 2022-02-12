@@ -1,0 +1,53 @@
+@mixin border($color_value, $border_width) {
+  border-color: $color_value !important;
+  border-width: $border_width !important;
+  border-style: solid;
+
+}
+
+.app .border-none {
+  border-color: transparent !important;
+  border-width: 1px !important;
+  border-style: none !important;
+}
+.app .border-none-hover:hover {
+  border-color: transparent !important;
+  border-width: 1px !important;
+  border-style: none !important;
+  
+}
+.app .border-hidden-hover:hover {
+  border-color: transparent !important;
+  border-width: 1px !important;
+  border-style: hidden !important;
+}
+.app .gradient-border {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    padding: 2px;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+}
+@each $selector_name, $selector_value in $selectors {
+@each $border_name, $border_value in $border-positions {
+  @each $color_name, $color_colors in $colors {
+    @each $color_type, $color_value in $color_colors {
+          .app .border#{$border_name}-#{$color_name}#{$color_type}#{$selector_name}#{$selector_value} {
+            @include border($color_value, $border_value);
+          }           
+    }
+  }
+}
+}

@@ -1,0 +1,41 @@
+
+@use "sass:math";
+@function generateColorScheme($color) {
+ $c: $color;
+  $colors: ('': $c) !default;
+
+  @for $i from 1 through 10 {
+    $colors: map-merge($colors, ('-tint-#{$i}': scale-color($c, $lightness: $i * 10%)))
+  }
+  @for $i from 1 through 10 {
+    $colors: map-merge($colors, ('-shade-#{$i}': scale-color($c, $lightness: $i * -10%)))
+  }
+  @for $i from 0 through 10 {
+    $colors: map-merge($colors, ('-alpha-#{$i}':  scale-color($c, $alpha: - $i * 10%)))
+  }
+  @for $i from 1 through 10 {
+    $colors: map-merge($colors, ('-tone-#{$i}':  scale-color($c, $saturation: - $i * 10%)))
+  }
+
+  @return $colors
+}
+
+
+$colors: (
+  'purple': generateColorScheme(#8f00ff),
+  'blue': generateColorScheme(#0019FF),
+  'pink': generateColorScheme(#FF00ff),
+  'orange': generateColorScheme(#FF5800),
+  'gold': generateColorScheme(#A57C00),
+  'green': generateColorScheme(#22bd4e),
+  'cyan': generateColorScheme(#00EEFF),
+  'yellow': generateColorScheme(#FFD300),
+  'success': generateColorScheme(#6EFF00),
+  'red': generateColorScheme(#FF1100),
+  'background': generateColorScheme(#0f0f10),
+  'grey': generateColorScheme(#808080),
+  'dark': generateColorScheme(#000030),
+  'light': generateColorScheme(#eeeeee),
+
+) !default;
+

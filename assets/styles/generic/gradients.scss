@@ -1,0 +1,62 @@
+
+@mixin background-radial($color_value) {
+
+  background-image: radial-gradient(circle, $color_value, #00000000 80%) !important;
+  fill: radial-gradient(circle, $color_value, #00000000 80%) !important;;
+  backdrop-filter: blur(4px);
+
+}
+
+@mixin text-clip-radial($color_value) {
+  background-image: radial-gradient(circle, $color_value, #00000000 90%) !important;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(4px);
+
+}
+
+@mixin background-linear($color_value, $direction_value) {
+
+  background-image: linear-gradient($direction_value, $color_value,  scale-color($color_value, $alpha: -100% )) !important;
+  backdrop-filter: blur(4px);
+
+}
+
+@mixin text-clip-linear($color_value, $direction_value) {
+  background-image: linear-gradient($direction_value, $color_value -15% ,scale-color($color_value, $alpha: -50% )) !important;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(4px);
+
+}
+@each $selector_name, $selector_value in $selectors {
+@each $direction_name, $direction_value in $directions {
+  @each $color_name, $color_colors in $colors {
+    @each $color_type, $color_value in $color_colors {
+    
+        @if($direction-name == 'radial'){
+          .app .background-#{$color_name}#{$color_type}-gradient-radial#{$selector_name}#{$selector-value} {
+            @include background-radial($color_value);
+          }
+  
+          .app .text-#{$color_name}#{$color_type}-gradient-radial#{$selector_name}#{$selector-value} {
+            @include text-clip-radial($color_value);
+          }
+
+  
+        } @else {
+          .app .background-#{$color_name}#{$color_type}-gradient-#{$direction_name}#{$selector_name}#{$selector-value} {
+            @include background-linear($color_value, $direction_value);
+          }
+  
+          .app .text-#{$color_name}#{$color_type}-gradient-#{$direction_name}#{$selector_name}#{$selector-value} {
+            @include text-clip-linear($color_value, $direction_value);
+          }
+        }
+    }
+  }
+}
+}
+

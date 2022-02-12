@@ -1,0 +1,68 @@
+@charset "UTF-8";
+@import "./styles/settings/_index";
+@import "./styles/generic/_index";
+@import "./styles/elements/index";
+@import "./styles/components/index";
+@import "./styles/utilities/index";
+
+//ITCSS: Scalable and Maintainable CSS Architecture https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
+
+// Animations
+@keyframes infiniteSlide {
+  0% {
+    mask-position: 0% 0%;
+  }
+
+  100% {
+    mask-position: 100% 0%;
+  }
+}
+@keyframes ripple {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+    
+  }
+  to {
+    opacity: 1;
+    transform: scale(4);
+  }
+}
+
+@keyframes expand-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+// Transitions
+.expand-enter-active {
+  animation: expand 0.3s ;
+}
+.expand-leave-active {
+  animation: expand 0.3s reverse;
+}
+.expand-enter-to, .expand-leave-from {
+  transform: scale(1);
+  opacity: 1;
+}
+.expand-enter-from,
+.expand-leave-to {
+  transform: scale(0);
+  opacity: 0;
+}
+
+@keyframes expand {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

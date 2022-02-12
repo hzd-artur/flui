@@ -1,0 +1,65 @@
+@mixin background-color($color_value) {
+  background-color: $color_value ;
+  fill: $color_value ;
+  backdrop-filter: blur(4px);
+}
+
+@mixin text-color($color_value) {
+  color: $color_value ;
+  caret-color: $color_value ;
+}
+@mixin bloom($color_value, $i) {
+//  -webkit-box-shadow: 0px #{$i * 2}px #{$i * 4}px 0px $color_value; 
+ // box-shadow: 0px #{$i * 2}px #{$i * $i}px 0px  scale-color($color_value, $alpha: -40% );
+  filter: drop-shadow(0px #{$i * 2}px #{$i * $i}px  scale-color($color_value, $alpha: -40% ));
+}
+@mixin border($color_value, $padding) {
+  background-color: $color_value ;
+  padding: $padding !important;
+}
+/* 
+elements can change color based on their state
+and each color can have variations of its own 
+
+
+Selectors: [ex: :hover, :active] ->
+                                   Colors: color_name: [ex: blue, orange]
+                                           color_values: [
+                                             {
+                                               color_modifier: [ex: pale, lighten, darken]
+                                               color_hex: values for #ff0000 -> [ex: #ee0000, #ff000066, #ff1111]
+                                             }
+                                           ] -> 
+                                                                                                           
+ */       
+ .transparent {
+   background: transparent !important; 
+   background-origin: padding-box !important;
+ }           
+ .transparent-hover:hover {
+  background: transparent !important; 
+  background-origin: padding-box !important;
+}                       
+ 
+@each $selector_name, $selector_value in $selectors {
+  @each $color_name, $color_values in $colors {
+    @each $color_modifier, $color_hex in $color_values {
+        .app .background-#{$color_name}#{$color_modifier}#{$selector_name}#{$selector_value} {
+          @include background-color($color_hex);
+        }
+
+        .app .text-#{$color_name}#{$color_modifier}#{$selector_name}#{$selector_value} {
+          @include text-color($color_hex);
+        }
+
+        @for $i from 1 through 16 {
+          .app .bloom-#{$i}-#{$color_name}#{$color_modifier}#{$selector_name}#{$selector_value} {
+            @include bloom($color_hex, $i);
+          }
+        }
+
+      
+    }
+  }
+}
+
