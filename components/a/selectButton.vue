@@ -27,7 +27,7 @@
     <transition name="select-scroll">
       <div
         v-if="isFocused"
-        class="a-select-items rounded-6"
+        class="a-select-items ro-6"
         :class="`${darkMode ? `${color}-darken-6` : `${color}-lighten-10`}`"
       >
         <a-button
@@ -134,7 +134,7 @@ export default {
 .select-scroll-enter-active {
   animation: bounce-in 0.25s ease-out;
 }
-.xablauselect-scroll-leave-active {
+.select-scroll-leave-active {
   animation: bounce-in 0.25s ease-out reverse;
 }
 .select-scroll-enter-to {

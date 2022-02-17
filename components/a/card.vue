@@ -1,10 +1,5 @@
 <template>
-  <div
-    ref="card"
-    class="ar-1 card"
-    :class="computedClasses"
-    :data-rellax-speed="scrollSpeed"
-  >
+  <div :class="computedClasses">
     <slot></slot>
   </div>
 </template>
@@ -14,10 +9,6 @@ const props = defineProps({
   color: {
     type: String,
     default: 'purple',
-  },
-  scrollSpeed: {
-    type: [String, Number],
-    default: '-2',
   },
   enhance: {
     type: [String, Number],
@@ -43,18 +34,13 @@ const props = defineProps({
 })
 </script>
 <script>
-import Rellax from 'rellax'
-
 export default {
   data() {
     return {
       rellax: {},
     }
   },
-  mounted() {
-    console.log(this.$refs.card)
-    this.rellax = new Rellax(this.$refs.card)
-  },
+
   computed: {
     computedClasses() {
       return this.computeColors(
@@ -70,14 +56,14 @@ export default {
       let style = {
         default: {
           light: {
-            default: 'pa-5 gradient-border rounded-6 bloom-2-grey-alpha-8',
+            default: 'pa-5 gradient-border ro-6 bloom-2-grey-alpha-8',
             color: `background-${color}-alpha-9 background-${color}-alpha-6-gradient-bottom-right`,
             border: `background-${color}-tint-9-gradient-bottom-right-before`,
             hover: `bloom-6-${color} background-${color}-alpha-6`,
             active: ``,
           },
           dark: {
-            default: 'pa-5 gradient-border rounded-6 bloom-2-grey-alpha-8',
+            default: 'pa-5 gradient-border ro-6 bloom-2-grey-alpha-8',
             color: `background-${color}-alpha-9 background-${color}-alpha-6-gradient-bottom-right`,
             border: `background-${color}-tint-2-gradient-bottom-right-before`,
             hover: `bloom-6-${color} background-${color}-alpha-6`,

@@ -9,13 +9,9 @@
       "
     >
       <a-header></a-header>
-      <main-waves style="top 0; left: 0;"></main-waves>
 
-      <div class="row ju-center" style="margin-top: 200px;">
-        <div class="col-12 col-sm-10 col-md-8 col-lg-6">
-          <slot />
-        </div>
-      </div>
+      <slot />
+
       <a-footer></a-footer>
     </div>
   </div>

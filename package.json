@@ -1,5 +1,5 @@
 {
-  "name": "iconsax",
+  "name": "flui",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -8,11 +8,12 @@
     "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
+    "animejs": "^3.2.1",
     "nuxt3": "latest"
   },
   "dependencies": {
+    "@mdi/js": "^6.5.95",
     "@nuxtjs/pwa": "^3.3.5",
-    "animejs": "^3.2.1",
     "rellax": "^1.12.1",
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0"

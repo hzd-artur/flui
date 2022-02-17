@@ -2,20 +2,20 @@
   background-color: $color_value ;
   fill: $color_value ;
   backdrop-filter: blur(4px);
+
 }
 
 @mixin text-color($color_value) {
   color: $color_value ;
   caret-color: $color_value ;
 }
+@mixin stroke($color_value) {
+  stroke: $color_value ;
+}
 @mixin bloom($color_value, $i) {
 //  -webkit-box-shadow: 0px #{$i * 2}px #{$i * 4}px 0px $color_value; 
  // box-shadow: 0px #{$i * 2}px #{$i * $i}px 0px  scale-color($color_value, $alpha: -40% );
   filter: drop-shadow(0px #{$i * 2}px #{$i * $i}px  scale-color($color_value, $alpha: -40% ));
-}
-@mixin border($color_value, $padding) {
-  background-color: $color_value ;
-  padding: $padding !important;
 }
 /* 
 elements can change color based on their state
@@ -51,8 +51,11 @@ Selectors: [ex: :hover, :active] ->
         .app .text-#{$color_name}#{$color_modifier}#{$selector_name}#{$selector_value} {
           @include text-color($color_hex);
         }
+        .app .stroke-#{$color_name}#{$color_modifier}#{$selector_name}#{$selector_value} {
+          @include stroke($color_hex);
+        }
 
-        @for $i from 1 through 16 {
+        @for $i from 1 through 10 {
           .app .bloom-#{$i}-#{$color_name}#{$color_modifier}#{$selector_name}#{$selector_value} {
             @include bloom($color_hex, $i);
           }

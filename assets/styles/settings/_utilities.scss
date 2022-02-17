@@ -289,41 +289,44 @@ $utilities: (
     properties: padding-left,
     values: $spacers,
   ),
-  // Border
-  "rounded":
+  "sw": (
+    properties: stroke-width,
+    values: $stroke-widths,
+  ),
+  "ro":
     (
       properties: border-radius,
       values: $rounded,
     ),
-  "rounded-top": (
+  "ro-top": (
     properties: border-top-left-radius border-top-right-radius,
     values: $rounded,
   ),
-  "rounded-right": (
+  "ro-right": (
     properties: border-top-right-radius border-bottom-right-radius,
     values: $rounded,
   ),
-  "rounded-bottom": (
+  "ro-bottom": (
     properties: border-bottom-left-radius border-bottom-right-radius,
     values: $rounded,
   ),
-  "rounded-left": (
+  "ro-left": (
     properties: border-top-left-radius border-bottom-left-radius,
     values: $rounded,
   ),
-  "rounded-top-left": (
+  "ro-top-left": (
     properties: border-top-left-radius,
     values: $rounded,
   ),
-  "rounded-top-right": (
+  "ro-top-right": (
     properties: border-top-right-radius,
     values: $rounded,
   ),
-  "rounded-bottom-right": (
+  "ro-bottom-right": (
     properties: border-bottom-right-radius,
     values: $rounded,
   ),
-  "rounded-bottom-left": (
+  "ro-bottom-left": (
     properties: border-bottom-left-radius,
     values: $rounded,
   ),

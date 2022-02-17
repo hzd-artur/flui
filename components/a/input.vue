@@ -1,5 +1,5 @@
 <template>
-  <div class="a-input-box rounded-2">
+  <div class="a-input-box ro-2">
     <slot name="prepend"></slot>
     <input
       type="text"

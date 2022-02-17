@@ -1,55 +1,98 @@
 <template>
-  <div class="background-mask">
-    <span>a</span>
-  </div>
+  <svg
+    class="icon"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 24 24"
+    xml:space="preserve"
+  >
+    <g>
+      <path
+        :class="`sw-${strokeWidth} stroke-${strokeColor} ${actualColor}`"
+        v-anime:[animationEvent]="animate"
+        :d="iconPath"
+      />
+    </g>
+  </svg>
 </template>
 <script setup>
+const darkMode = useState('darkMode')
+
 const props = defineProps({
+  icon: {
+    type: String,
+    default: 'square-rounded',
+  },
   color: {
     type: String,
-    default: 'grey',
+    default: '',
+  },
+  outline: {
+    type: [Boolean, Number, String],
+    default: false,
+  },
+  strokeColor: {
+    type: String,
+    default: '',
+  },
+  strokeWidth: {
+    type: String,
+    default: '1',
   },
   size: {
-    type: String,
-    default: '100%',
+    type: [String, Number],
+    default: 2,
   },
-  iconStyle: {
-    type: String,
-    default: 'bold',
+  animate: {
+    type: Function,
+    default: (anime) => {
+      return {
+        opacity: [1, 1],
+        strokeDashoffset: [anime.setDashoffset, 0],
+        duration: 250,
+        easing: 'easeInOutSine',
+      }
+    },
   },
-  iconName: {
+  animationEvent: {
     type: String,
-    default: 'book',
-  },
-  src: {
-    type: String,
-    default: 'url("./icons/#{$icon-style}/#{$icon-name}.svg");',
+    default: '',
   },
 })
-/* */
 </script>
-<style lang="scss">
-.background-mask {
-  width: v-bind(size);
-  height: auto;
-  aspect-ratio: 1;
+<script>
+export default {
+  data() {
+    return {
+      iconPath: this.$icon.get(
+        this.$slots.default?.()?.[0]?.children ?? this.icon,
+      ),
+    }
+  },
+  computed: {
+    fillOpacity() {
+      return this.outline ? 0 : 1
+    },
+    actualColor() {
+      return this.color
+        .trim()
+        .split(' ')
+        .map((color) => 'background-' + color)
+        .join(' ')
+    },
+    actualSize() {
+      return isNaN(this.size) ? this.size : parseInt(this.size) * 3 * 6 + 'px'
+    },
+  },
 }
-.background-mask {
-  width: 100%;
-  height: auto;
+</script>
+<style lang="scss" scoped>
+.icon {
   aspect-ratio: 1;
-  mask-image: v-bind(src);
-  mask-size: 100%;
-}
-.background-mask::before {
-  content: '';
-  position: absolute;
-  bottom: 0%;
-  right: 0%;
-  width: 100%;
+  stroke-linecap: round;
+  fill-opacity: v-bind(fillOpacity);
+  width: v-bind(actualSize);
   height: auto;
-  aspect-ratio: 1;
-  background-repeat: repeat;
-  mask-size: 100%;
 }
 </style>

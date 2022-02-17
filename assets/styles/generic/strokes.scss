@@ -45,11 +45,11 @@
   }
 }
 @each $selector_name, $selector_value in $selectors {
-@each $border_name, $border_position in $border-positions {
+@each $border_name, $border_value in $border-positions {
   @each $color_name, $color_colors in $colors {
     @each $color_type, $color_value in $color_colors {
           .app .border#{$border_name}-#{$color_name}#{$color_type}#{$selector_name}#{$selector_value} {
-            @include border($color_value, $border_position);
+            @include border($color_value, $border_value);
           }           
     }
   }

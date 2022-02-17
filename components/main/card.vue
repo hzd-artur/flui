@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded-8">
+  <div class="ro-8">
     <div :class="classesState">
       <div class="row al-stretch">
         <div
@@ -57,7 +57,7 @@ const props = defineProps({
 export default {
   computed: {
     classesState() {
-      return `rounded-8 text--${
+      return `ro-8 text--${
         this.darkMode
           ? `grey-lighten-8-gradient-left`
           : `${this.color}-darken-7`

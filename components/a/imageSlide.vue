@@ -5,7 +5,7 @@
         v-for="img in imagesCmp"
         :key="img.src"
         @click="setImageOrder(img.index)"
-        class="image rounded-3"
+        class="image ro-3"
         :style="img.style"
       ></div>
     </transition-group>

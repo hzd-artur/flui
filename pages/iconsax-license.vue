@@ -2,7 +2,7 @@
   <div class="row mt-12 mb-9 ju-center">
     <div class="col-12 col-md-10 col-lg-10 col-xl-8">
       <main-card
-        class="rounded-4 grey-glassy-5-gradient-bottom-right bloom-9-grey-glassy-7"
+        class="ro-4 grey-glassy-5-gradient-bottom-right bloom-9-grey-glassy-7"
         color="grey"
       >
         <template #title>

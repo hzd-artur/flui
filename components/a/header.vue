@@ -5,17 +5,9 @@
     <div class="col-md-3 di-flex fl-grow-1 al-center h-100">
       <div class="he-100" style="width: 32px;">
         <logos-flui-logo
-          :group1Class="{
-            light: 'background-grey-shade-6',
-            dark: 'background-grey-tint-6',
-          }"
-          :group2Class="{
-            light: 'background-grey-shade-6',
-            dark: 'background-grey-tint-6',
-          }"
-          :group3Class="{
-            light: 'background-grey-shade-6 ',
-            dark: 'background-grey-tint-6',
+          :color="{
+            light: 'background-purple-tint-6 bloom-1-dark-alpha-6',
+            dark: 'background-purple-tint-4 bloom-1-dark-alpha-6',
           }"
         ></logos-flui-logo>
       </div>
@@ -24,35 +16,17 @@
       </div>
     </div>
     <div class="di-flex fl-grow-1 ju-center">
-      <a-button
-        to="/"
-        color="blue"
-        :active="$route.name === 'index'"
-        nav
-        mode="nav"
-        rounded="0"
-        class="mx-2"
-      >
+      <a-button color="blue" template="transparent" rounded="0" class="mx-2">
         home
       </a-button>
-      <a-button
-        to="/iconsax-license"
-        color="blue"
-        :active="$route.name === 'iconsax-license'"
-        rounded="0"
-        nav
-        mode="nav"
-        class="mx-2"
-      >
+      <a-button color="blue" rounded="0" template="transparent" class="mx-2">
         license
       </a-button>
       <a-button
         to="/contact-us"
         color="blue"
-        :active="$route.name === 'contact-us'"
         rounded="0"
-        nav
-        mode="nav"
+        template="transparent"
         class="mx-2"
       >
         contact us

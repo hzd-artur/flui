@@ -1,14 +1,15 @@
 <template>
-  <div
-    class="row"
-    :class="darkMode ? 'text--grey-lighten-9' : ' text--grey-darken-5'"
-    ref="row"
-  >
-    <slot name="test" :cols="cols">
-      <div>
-        <div class="asddd">asdasdas</div>
-      </div>
-    </slot>
+  <div class="row" :class="`ma-n${gutter}`" ref="row">
+    <div
+      v-for="(col, name) in colList"
+      :class="`pa-${gutter} col-${col.cols} ${
+        col.sm ? `col-sm-${col.sm}` : ''
+      } ${col.md ? `col-md-${col.md}` : ''} ${
+        col.lg ? `col-lg-${col.lg}` : ''
+      } ${col.xl ? `col-xl-${col.xl}` : ''}  ${col.class || ''}`"
+    >
+      <slot :name="name" :col="col"></slot>
+    </div>
   </div>
 </template>
 <script setup>
@@ -18,9 +19,25 @@ const props = defineProps({
     type: [String, Number, Array, Object],
     default: 12,
   },
-  maxCols: {
+  sm: {
+    type: [String, Number, Array, Object],
+    default: '',
+  },
+  md: {
+    type: [String, Number, Array, Object],
+    default: '',
+  },
+  lg: {
+    type: [String, Number, Array, Object],
+    default: '',
+  },
+  xl: {
+    type: [String, Number, Array, Object],
+    default: '',
+  },
+  gutter: {
     type: [String, Number],
-    default: 12,
+    default: 3,
   },
 })
 </script>
@@ -28,7 +45,7 @@ const props = defineProps({
 export default {
   data() {
     return {
-      colsList: [],
+      colList: [],
     }
   },
   methods: {
@@ -50,22 +67,25 @@ export default {
       } else {
         // Item is a string
         // we are transforming an array of items into an usable array
+        let sm = this.sm.toString().split(' ')
+        let md = this.md.toString().split(' ')
+        let lg = this.lg.toString().split(' ')
+        let xl = this.xl.toString().split(' ')
         return item
           .toString()
           .split(' ')
-          .map((col) => ({ cols: col }))
+          .map((col, i) => ({
+            cols: col,
+            sm: sm[i],
+            md: md[i],
+            lg: lg[i],
+            xl: xl[i],
+          }))
       }
-
-      console.log(evt)
     },
   },
-  mounted() {
-    console.log(this.$refs.row)
+  created() {
+    this.colList = this.transform(this.cols)
   },
 }
 </script>
-<style scoped>
-.v-bind(x) {
-  color: blue;
-}
-</style>
