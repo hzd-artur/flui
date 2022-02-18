@@ -4,10 +4,17 @@
 
     <div class="col-12 col-sm-10 col-md-8">
       <div class="di-flex fl-column">
-        <div class="di-flex he-100vh ju-center al-center">
+        <div class="di-flex he-min-100vh ju-center al-center">
           <div class="zi-10 wi-100 he-100 di-flex al-center">
-            <div class="row ju-center al-center">
-              <div class="col-4">
+            <a-row
+              class="ju-center al-center"
+              gutter="0"
+              cols="3 12"
+              md="6 12"
+              sm="4 12"
+              lg="3 9"
+            >
+              <template #0>
                 <logos-flui-logo
                   class="bloom-1-dark-alpha-6"
                   :color="{
@@ -15,72 +22,61 @@
                     dark: 'background-purple-tint-4',
                   }"
                 ></logos-flui-logo>
-              </div>
-              <div
-                class="col-8 pa-20 di-flex fl-column ju-center al-center po-relative fs-10 mb-4 text-light bloom-1-dark"
-              >
-                <div>Making</div>
-                <div class="wi-100">
-                  <transition-group
-                    tag="div"
-                    class="po-relative ov-hidden pb-4 di-flex fl-column ju-center al-center"
-                    name="slide-next"
-                  >
-                    <span class="po-absolute" :key="currentWord">
-                      {{ currentWord }}
-                    </span>
-                    <span class="text-dark-alpha-10" key="currentWord">
-                      {{ currentWord }}
-                    </span>
-                  </transition-group>
-                </div>
-                <div>go fluid</div>
-                <a-row
-                  class="mt-20 fl-wrap ju-center wi-100"
-                  cols="12 12 12"
-                  md="6 6 6"
-                  lg="4 4 4"
+              </template>
+              <template #1>
+                <div
+                  class="pa-lg-20 di-flex fl-column ju-center al-center po-relative fs-md-9 fs-8 mb-4 text-light bloom-1-dark"
                 >
-                  <template #2>
-                    <a-button
-                      color="purple"
-                      class="py-6 wi-100"
-                      template="transparent"
+                  <div>Making</div>
+                  <div class="wi-100 di-flex al-center ju-center ov-hidden">
+                    <transition-group
+                      tag="div"
+                      class="po-relative py-3 wi-100 di-flex fl-column ju-center al-center"
+                      name="slide-next"
                     >
-                      <span class="fs-2">GitHub Page</span>
-                    </a-button>
-                  </template>
-                  <template #1>
-                    <a-button
-                      color="purple"
-                      class="py-6 wi-100"
-                      template="default"
-                    >
-                      <span class="fs-2">Why Flui?</span>
-                    </a-button>
-                  </template>
-                  <template #0>
-                    <a-button
-                      color="purple"
-                      class="py-6 wi-100"
-                      template="glassy"
-                    >
-                      <span class="fs-2">Documentation</span>
-                    </a-button>
-                  </template>
-                </a-row>
-              </div>
-              <!--   <div class="row">
-            <div
-              class="col-2 bloom-2-purple transition bloom-4-purple-hover ar-1 wi-100"
-            >
-              <a-icon
-                class="background-light-alpha-7 transition background-purple-gradient-bottom-left background-purple-hover"
-                src="url('logos/FluiLogo.svg')"
-              ></a-icon>
-            </div>
-          </div> -->
-            </div>
+                      <div class="po-absolute" :key="currentWord">
+                        {{ currentWord }}
+                      </div>
+                      <div key="none" class="text-dark-alpha-10">
+                        {{ currentWord }}
+                      </div>
+                    </transition-group>
+                  </div>
+                  <div>go fluid</div>
+                  <a-row
+                    class="mt-20 fl-wrap ju-center wi-100"
+                    cols="12 12 12"
+                    sm="6 6 6"
+                    md="6 6 6"
+                    lg="4 4 4"
+                  >
+                    <template #2>
+                      <a-button
+                        class="wi-100"
+                        color="purple"
+                        template="transparent"
+                      >
+                        <span class="fs-2">GitHub Page</span>
+                      </a-button>
+                    </template>
+                    <template #1>
+                      <a-button
+                        class="wi-100"
+                        color="purple"
+                        template="default"
+                      >
+                        <span class="fs-2">Why Flui?</span>
+                      </a-button>
+                    </template>
+                    <template #0>
+                      <a-button class="wi-100" color="purple" template="glassy">
+                        <span class="fs-2">Documentation</span>
+                      </a-button>
+                    </template>
+                  </a-row>
+                </div>
+              </template>
+            </a-row>
           </div>
         </div>
         <a-icon>account</a-icon>
@@ -100,7 +96,7 @@
         <div class="mt-12">
           <div class="row">
             <div v-for="color in colors" class="col-12">
-              <div v-for="type in types" class="di-flex ro-6 ov-hidden mb-3">
+              <div v-for="type in types" class="di-flex ro-6 oy-hidden mb-3">
                 <div
                   v-for="value in 10"
                   class="ar-1 col"
@@ -161,10 +157,25 @@ export default {
 }
 </script>
 <style scoped>
+.box::before {
+  content: ' ';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px; /*1*/
+  border: 10px solid transparent; /*2*/
+  background-image: linear-gradient(45deg, red, blue); /*3*/
+  background-origin: border-box; /*3*/
+  -webkit-mask: /*4*/ linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; /*5'*/
+  mask-composite: exclude; /*5*/
+}
 .slide-next-enter-active,
 .slide-next-leave-active {
   transition: transform 0.5s ease-in-out;
 }
+
 .slide-next-enter-from {
   transform: translate(0, 100%);
 }

@@ -1,8 +1,8 @@
 <template>
   <header
-    class="po-fixed wi-100 px-10 di-flex fl-wrap al-center ju-space-between"
+    class="po-fixed wi-100 px-md-10 px-2 di-flex fl-wrap al-center ju-space-between"
   >
-    <div class="col-md-3 di-flex fl-grow-1 al-center h-100">
+    <div class="col-3 di-flex fl-grow-1 al-center h-100">
       <div class="he-100" style="width: 32px;">
         <logos-flui-logo
           :color="{
@@ -11,15 +11,15 @@
           }"
         ></logos-flui-logo>
       </div>
-      <div class="px-5 text--grey fw-4 fs-5">
+      <div class="px-5 text-purple-tint-8 fw-4 fs-5">
         Flui
       </div>
     </div>
     <div class="di-flex fl-grow-1 ju-center">
-      <a-button color="blue" template="transparent" rounded="0" class="mx-2">
+      <a-button color="purple" template="transparent" rounded="0" class="mx-2">
         home
       </a-button>
-      <a-button color="blue" rounded="0" template="transparent" class="mx-2">
+      <a-button color="purple" rounded="0" template="transparent" class="mx-2">
         license
       </a-button>
       <a-button
@@ -32,15 +32,17 @@
         contact us
       </a-button>
     </div>
-    <div class="di-none di-md-flex col-md-3 my-2 fl-grow-1 al-center ju-end">
+    <div class="col-md-3 di-flex my-2 fl-grow-1 al-center ju-end">
       <a-button
         rounded="10"
-        mode="nav"
+        template="transparent"
         color="grey"
         aspectRatio="1"
         @click="setTheme()"
       >
-        aa
+        <a-icon outline strokeColor="purple">
+          square
+        </a-icon>
       </a-button>
     </div>
   </header>

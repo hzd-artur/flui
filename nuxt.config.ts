@@ -5,8 +5,8 @@ export default defineNuxtConfig({
   css: ['@/assets/main.scss'],
   // Uncoment to develop
   // Comment to build
-  /*  ssr: false,
-  dev: true, */
+  ssr: false,
+  dev: true,
   meta: {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     title: 'Flui',

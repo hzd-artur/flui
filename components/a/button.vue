@@ -78,16 +78,15 @@ export default {
         },
         glassy: {
           light: {
-            bloom: `bloom-1-dark-alpha-7 bloom-4-${color}-hover bloom-2-${color}-active`,
-            textColor: `text-${color}-shade-9 text-dark-hover`,
+            textColor: `text-${color}-shade-5 text-dark-hover`,
             backgroundColor: `background-${color}-alpha-9`,
-            border: `background-${color}-tint-5-gradient-top-left background-${color}-shade-5`,
+            border: `background-${color}-tint-8-gradient-top-left background-${color}-alpha-9`,
           },
           dark: {
             bloom: `bloom-2-dark-alpha-7 bloom-4-${color}-hover bloom-2-${color}-active`,
             textColor: `text-${color}-tint-9 text-light-hover`,
             backgroundColor: `background-${color}-alpha-9`,
-            border: `background-${color}-tint-5-gradient-top-left background-${color}-shade-5`,
+            border: `background-${color}-tint-5-gradient-top-left background-${color}-alpha-5`,
           },
         },
         transparent: {
@@ -107,7 +106,7 @@ export default {
       return Object.values({
         ...style[template][mode],
         ...{
-          default: `pa-${size} ro-${rounded} fw-5`,
+          default: `pa-${size} ro-${rounded} fw-4`,
           border: style[template][mode].border
             ? 'gradient-border ' +
               style[template][mode].border
@@ -128,9 +127,12 @@ export default {
   &:hover {
     transform: translate3D(0, -2px, 0);
   }
+  backdrop-filter: blur(40px);
 }
 .a-button-content {
   display: flex;
+  text-decoration: none;
+  text-shadow: none;
   justify-content: center;
   align-items: center;
   pointer-events: none;

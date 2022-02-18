@@ -8,17 +8,19 @@ $utilities: (
       visible,
     ),
   ),
-  "ov-x": (
+  "ox": (
     properties: overflow-x,
     values: (
       auto,
+      visible,
       hidden,
     ),
   ),
-  "ov-y": (
+  "oy": (
     properties: overflow-y,
     values: (
       auto,
+      visible,
       hidden,
     ),
   ),

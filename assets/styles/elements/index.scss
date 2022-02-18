@@ -16,12 +16,16 @@ html{
 
 button {
   font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
   background-color: transparent;
   outline: none;
   border: none;
   cursor: pointer;
   overflow: hidden;
-  
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 body {
   margin: 0;

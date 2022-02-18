@@ -70,6 +70,7 @@ export default {
       ),
     }
   },
+
   computed: {
     fillOpacity() {
       return this.outline ? 0 : 1
