@@ -12,21 +12,9 @@ const props = defineProps({
     type: String,
     default: 'purple',
   },
-  enhance: {
-    type: [String, Number],
-    default: 6,
-  },
-  lightColor: {
-    type: String,
-    default: '',
-  },
-  darkColor: {
-    type: String,
-    default: '',
-  },
   rounded: {
     type: [String, Number],
-    default: '5',
+    default: '4',
   },
   size: {
     type: [String, Number],
@@ -76,17 +64,32 @@ export default {
             hover: ` background-${color}-alpha-6 text-light`,
           },
         },
+        gradient: {
+          light: {
+            bloom: `bloom-1-dark-alpha-7 bloom-4-${color}-hover bloom-2-${color}-active`,
+            textColor: `text-${color}-tint-8 text-light-hover`,
+            backgroundColor: `background-${color}-tint-5-gradient-top-left background-${color}-shade-5`,
+            border: ``,
+            hover: `bloom-4-${color} background-${color}-alpha-6 `,
+          },
+          dark: {
+            bloom: `bloom-2-dark-alpha-7 bloom-4-${color}-hover bloom-2-${color}-active`,
+            textColor: `text-${color}-tint-8 text-light-hover`,
+            backgroundColor: `background-${color}-tint-4-gradient-top-left background-${color}-shade-4`,
+            hover: ` background-${color}-alpha-6 text-light`,
+          },
+        },
         glassy: {
           light: {
             textColor: `text-${color}-shade-5 text-dark-hover`,
             backgroundColor: `background-${color}-alpha-9`,
-            border: `background-${color}-tint-8-gradient-top-left background-${color}-alpha-9`,
+            border: `background-${color}-tint-3-gradient-top-left background-${color}-alpha-7`,
           },
           dark: {
             bloom: `bloom-2-dark-alpha-7 bloom-4-${color}-hover bloom-2-${color}-active`,
             textColor: `text-${color}-tint-9 text-light-hover`,
             backgroundColor: `background-${color}-alpha-9`,
-            border: `background-${color}-tint-5-gradient-top-left background-${color}-alpha-5`,
+            border: `background-${color}-alpha-5-gradient-top-left background-${color}-shade-5`,
           },
         },
         transparent: {
@@ -127,7 +130,7 @@ export default {
   &:hover {
     transform: translate3D(0, -2px, 0);
   }
-  backdrop-filter: blur(40px);
+  backdrop-filter: blur(4px);
 }
 .a-button-content {
   display: flex;

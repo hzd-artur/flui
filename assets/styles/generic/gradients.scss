@@ -17,13 +17,13 @@
 
 @mixin background-linear($color_value, $direction_value) {
 
-  background-image: linear-gradient($direction_value, $color_value,  scale-color($color_value, $alpha: -100% )) !important;
+  background-image: linear-gradient($direction_value, scale-color($color_value, $alpha: -100% ), $color_value 120%) !important;
   // backdrop-filter: blur(4px);
 
 }
 
 @mixin text-clip-linear($color_value, $direction_value) {
-  background-image: linear-gradient($direction_value, $color_value -15% ,scale-color($color_value, $alpha: -50% )) !important;
+  background-image: linear-gradient($direction_value, scale-color($color_value, $alpha: -50% ), $color_value 90% ) !important;
   background-clip: text;
   -webkit-background-clip: text;
   color: rgba(0, 0, 0, 0);

@@ -33,7 +33,8 @@
     width: 100%;
     height: 100%;
     border-radius: inherit;
-    border: 1px solid transparent;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
     -webkit-mask: linear-gradient(#fff, #fff) padding-box, radial-gradient(100% 160%, #ffffff 44%,  #ffffff00);
     mask: linear-gradient(#fff, #fff) padding-box, radial-gradient(100% 160%, #ffffff 44%,  #ffffff00);
     -webkit-mask-composite: xor;

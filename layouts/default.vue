@@ -1,5 +1,7 @@
 <template>
   <div class="app">
+    <a-header></a-header>
+
     <div
       class="fl-grow-1 fl-column d-flex"
       :class="
@@ -8,8 +10,6 @@
           : 'background-purple-tint-9 text-purple-shade-9'
       "
     >
-      <a-header></a-header>
-
       <slot />
 
       <a-footer></a-footer>
@@ -21,6 +21,9 @@ const darkMode = useState('darkMode', () => false)
 </script>
 <script>
 export default {
+  data: () => ({
+    scroll: {},
+  }),
   methods: {
     setTheme() {
       this.darkMode = !this.darkMode
@@ -28,6 +31,8 @@ export default {
     },
   },
   mounted() {
+    /*    let result = sass.compileString(`@import './colors.scss';`)
+    console.log(result) */
     let isDark = false
 
     const theme = localStorage.getItem('theme')

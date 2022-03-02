@@ -77,4 +77,5 @@ let animeDir = {
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive('anime', animeDir)
+  nuxtApp.vueApp.config.globalProperties.$anime = anime
 })

@@ -1,5 +1,5 @@
 <template>
-  <div class="row" :class="`ma-n${gutter}`" ref="row">
+  <div class="row" :class="`ma-n${gutter} ju-${justify} al-${align}`" ref="row">
     <div
       v-for="(col, name) in colList"
       :class="`pa-${gutter} col-${col.cols} ${
@@ -8,6 +8,7 @@
         col.lg ? `col-lg-${col.lg}` : ''
       } ${col.xl ? `col-xl-${col.xl}` : ''}  ${col.class || ''}`"
     >
+      <slot></slot>
       <slot :name="name" :col="col"></slot>
     </div>
   </div>
@@ -38,6 +39,14 @@ const props = defineProps({
   gutter: {
     type: [String, Number],
     default: 3,
+  },
+  justify: {
+    type: String,
+    default: 'start',
+  },
+  align: {
+    type: String,
+    default: 'start',
   },
 })
 </script>

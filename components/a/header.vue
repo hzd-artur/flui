@@ -16,15 +16,21 @@
       </div>
     </div>
     <div class="di-flex fl-grow-1 ju-center">
-      <a-button color="purple" template="transparent" rounded="0" class="mx-2">
+      <a-button
+        @click="$router.push('/')"
+        color="purple"
+        template="transparent"
+        rounded="0"
+        class="mx-2"
+      >
         home
       </a-button>
       <a-button color="purple" rounded="0" template="transparent" class="mx-2">
         license
       </a-button>
       <a-button
-        to="/contact-us"
-        color="blue"
+        @click="$router.push('playground')"
+        color="purple"
         rounded="0"
         template="transparent"
         class="mx-2"
@@ -40,9 +46,11 @@
         aspectRatio="1"
         @click="setTheme()"
       >
-        <a-icon outline strokeColor="purple">
-          square
-        </a-icon>
+        <a-icon
+          size="22px"
+          :icon="darkMode ? 'brightness-7' : 'brightness-2'"
+          :color="darkMode ? 'light' : 'dark'"
+        ></a-icon>
       </a-button>
     </div>
   </header>

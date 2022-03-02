@@ -63,15 +63,17 @@ const props = defineProps({
 </script>
 <script>
 export default {
-  data() {
-    return {
-      iconPath: this.$icon.get(
-        this.$slots.default?.()?.[0]?.children ?? this.icon,
-      ),
-    }
+  watch: {
+    iconPath() {
+      this.$anime({ el: this.$refs })
+    },
   },
-
   computed: {
+    iconPath() {
+      return `${this.$icon.get(
+        this.$slots.default?.()?.[0]?.children ?? this.icon,
+      )}`
+    },
     fillOpacity() {
       return this.outline ? 0 : 1
     },
@@ -94,6 +96,7 @@ export default {
   stroke-linecap: round;
   fill-opacity: v-bind(fillOpacity);
   width: v-bind(actualSize);
+  d: v-bind(iconPath);
   height: auto;
 }
 </style>
