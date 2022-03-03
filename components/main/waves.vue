@@ -3,10 +3,10 @@
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
-    class="he-100vh po-absolute waves ov-visible"
+    class="he-100vh wi-100 po-absolute waves ov-visible"
     viewBox="0 0 900 230"
     style="enable-background: new 0 0 900 231; z-index: -1; top: 0px;"
-    xml:space="preserve"
+    preserveAspectRatio="none"
   >
     <path
       v-parallax="{ speed: 0 }"
@@ -41,7 +41,7 @@
  s-75.1,0-94,0H0V107z"
     />
     <path
-      v-parallax="{ speed: -2 }"
+      v-parallax="{ speed: 1 }"
       :class="`rellax-waves background-${color}-alpha-1 blur-1-dark-alpha-2`"
       d="M0,180l18.8-1.8c18.9-1.9,56.5-5.5,94-5.7s74.9,3.2,112.4,3.7s75.1-1.9,112.6-5.4s74.9-8.1,112.4-5.6
  s75.1,12.1,112.6,14.1s74.9-3.6,112.4-8.1s75.1-7.9,112.6-7.2s74.9,5.3,93.5,7.7L900,174v58h-18.7c-18.6,0-56,0-93.5,0

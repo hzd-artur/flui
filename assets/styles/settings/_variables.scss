@@ -35,7 +35,7 @@ $stroke-widths: () !default;
     )
   );
 }
-$spacer: 3px !default;
+$spacer: 4px !default;
 $spacers: () !default;
 @for $i from 0 through 20 {
   $spacers: map-merge(

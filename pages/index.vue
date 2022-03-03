@@ -1,8 +1,8 @@
 <template>
-  <div class="row ju-center po-relative">
+  <div class="po-relative">
     <main-waves style="top 0; left: 0;"></main-waves>
-
     <a-row
+      class="he-min-100vh my-0"
       cols="12"
       sm="11"
       md="10"
@@ -10,6 +10,7 @@
       xl="8"
       justify="center"
       align="center"
+      gutter="0"
     >
       <a-row
         class="ju-center al-center"
@@ -81,7 +82,32 @@
         </template>
       </a-row>
     </a-row>
-    <div class="col-12 col-sm-10 col-md-8">
+    <a-row
+      class="mx-10"
+      cols="12 12"
+      sm="11 11"
+      md="10 10"
+      lg="6 4"
+      gutter="10"
+      justify="center"
+      align="center"
+    >
+      <template #0>
+        <div class="fs-7 fw-4">Colorfull and animated</div>
+        <div class="fs-3 fw-4">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </div>
+      </template>
+      <template #1>
+        <div>
+          <a-input label="Type me"></a-input>
+        </div>
+      </template>
+    </a-row>
+    <!--     <div class="col-12 col-sm-10 col-md-8">
       <a-button template="gradient">asaaaaaaaaaaaad</a-button>
       <a-icon>account</a-icon>
       <a-icon>access-point</a-icon>
@@ -110,7 +136,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script setup>
@@ -153,9 +179,9 @@ export default {
     },
   },
   mounted() {
-    setInterval(() => {
+    /*    setInterval(() => {
       this.changeWord()
-    }, 3000)
+    }, 3000) */
   },
 }
 </script>

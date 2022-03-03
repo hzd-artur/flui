@@ -10,7 +10,6 @@
     <g>
       <path
         :class="`sw-${strokeWidth} stroke-${strokeColor} ${actualColor}`"
-        v-anime:[animationEvent]="animate"
         :d="iconPath"
       />
     </g>
@@ -44,30 +43,10 @@ const props = defineProps({
     type: [String, Number],
     default: 2,
   },
-  animate: {
-    type: Function,
-    default: (anime) => {
-      return {
-        opacity: [1, 1],
-        strokeDashoffset: [anime.setDashoffset, 0],
-        duration: 250,
-        easing: 'easeInOutSine',
-      }
-    },
-  },
-  animationEvent: {
-    type: String,
-    default: '',
-  },
 })
 </script>
 <script>
 export default {
-  watch: {
-    iconPath() {
-      this.$anime({ el: this.$refs })
-    },
-  },
   computed: {
     iconPath() {
       return `${this.$icon.get(

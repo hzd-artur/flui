@@ -14,7 +14,7 @@ const props = defineProps({
   },
   rounded: {
     type: [String, Number],
-    default: '4',
+    default: '5',
   },
   size: {
     type: [String, Number],
@@ -54,14 +54,12 @@ export default {
             textColor: `text-${color}-tint-8 text-light-hover`,
             backgroundColor: `background-${color}`,
             border: `background-${color}-tint-5-gradient-top-left background-${color}-shade-5`,
-            hover: `bloom-4-${color} background-${color}-alpha-6 `,
           },
           dark: {
-            bloom: `bloom-2-dark-alpha-7 bloom-4-${color}-hover bloom-2-${color}-active`,
+            bloom: ` bloom-3-${color}-hover bloom-2-${color}-active`,
             textColor: `text-${color}-tint-8 text-light-hover`,
-            backgroundColor: `background-${color}`,
-            border: `background-${color}-tint-5-gradient-top-left background-${color}-shade-5`,
-            hover: ` background-${color}-alpha-6 text-light`,
+            backgroundColor: `background-${color}-shade-3`,
+            border: `background-${color}-tint-4-gradient-top-left background-${color}-shade-4`,
           },
         },
         gradient: {
@@ -128,7 +126,7 @@ export default {
   user-select: none;
   transition: all 0.25s ease;
   &:hover {
-    transform: translate3D(0, -2px, 0);
+    transform: translate3D(0, -2px, 0) scale(1.1);
   }
   backdrop-filter: blur(4px);
 }

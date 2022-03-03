@@ -7,6 +7,7 @@ html{
   font-weight: 400;
   line-height: 1.5;
   font-size: 16px;
+  overflow-y: overlay;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -28,6 +29,9 @@ button {
   -moz-appearance: none;
 }
 body {
+  overflow: overlay;
+  scrollbar-color: rebeccapurple transparent;
+
   margin: 0;
   padding: 0;
 
@@ -49,6 +53,7 @@ input {
   background-color: transparent;
   border-style: none;
   font: inherit;
+  color: currentColor;
   flex: 1 1 auto;
   line-height: 20px;
   padding: 8px;
@@ -66,7 +71,7 @@ input {
   }
   
   ::-webkit-scrollbar-track {
-    background: #000000;
+    background: transparent;
   }
   
   ::-webkit-scrollbar-thumb {

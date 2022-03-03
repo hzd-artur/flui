@@ -3,6 +3,7 @@
     <a-header></a-header>
 
     <div
+      style="overflow: overlay;"
       class="fl-grow-1 fl-column d-flex"
       :class="
         darkMode

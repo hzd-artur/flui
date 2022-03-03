@@ -3,6 +3,8 @@
     <a-button
       class="w-100 h-100 z-100"
       @click="focus()"
+      mode="select"
+      padding="24px"
       :rounded="rounded"
       :color="color"
     >
@@ -13,9 +15,13 @@
         <slot v-else name="notFound">
           Select
         </slot>
-        <a-icon size="24px" class="mr-2" :color="color + '-lighten-9'">
-          chevron-down
-        </a-icon>
+        <a-icon
+          size="24px"
+          icon-style="linear"
+          icon-name="arrow-down"
+          class="mr-2"
+          :color="color + '-lighten-9'"
+        ></a-icon>
       </div>
     </a-button>
     <transition name="select-scroll">
@@ -27,10 +33,13 @@
         <a-button
           class="ma-1"
           rounded="6"
+          padding="10px 20px"
           v-if="items.length"
           v-for="(item, i) in items"
           @click="input(item, i)"
-          template="glassy"
+          :active="item.value === selected.value"
+          color="primary"
+          mode="radio"
         >
           <slot name="item" :item="item">
             {{ (item.text || item.value) }}
