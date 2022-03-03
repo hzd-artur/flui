@@ -1,17 +1,13 @@
 <template>
   <div class="a-input-box ro-5" :class="`text-${color}-lighten-3`">
     <slot name="prepend"></slot>
-    <label
-      class="a-input-label"
-      :class="isFocused || val ? 'a-input-label--active' : ''"
-    >
+    <label class="a-input-label" ref="label">
       <slot name="label">
         {{ label }}
       </slot>
     </label>
     <input
       type="text"
-      :placeholder="placeholder"
       @focus="focus()"
       @blur="blur()"
       :class="`a-input py-3`"
@@ -67,10 +63,12 @@ export default {
   },
   watch: {
     val() {
-      clearTimeout(this.timeout)
+      if (!this.isFocused || this.val) {
+      }
+      /*  clearTimeout(this.timeout)
       this.timeout = setTimeout(() => {
         this.$emit('update:modelValue', this.val)
-      }, 1000)
+      }, 1000) */
     },
   },
 
@@ -78,20 +76,19 @@ export default {
     enterLoading() {},
     leaveLoading() {},
     onEnter(el, done) {
-      console.log('enter')
       this.$anime({
         targets: el,
         duration: 200,
-        easing: 'easeInOutSine',
+        easing: 'easeOutCubic',
         width: [0, '100%'],
         complete: done,
       })
     },
     onLeave(el, done) {
-      console.log('leave')
       this.$anime({
         targets: el,
         duration: 200,
+        easing: 'easeInCubic',
         opacity: [1, 0],
         width: ['100%', 0],
         complete: done,
@@ -117,9 +114,27 @@ export default {
       })
     },
     focus() {
+      if (this.val) return
+      this.$anime({
+        targets: this.$refs.label,
+        duration: 100,
+        scale: [1, 0.7],
+        easing: 'easeInQuad',
+        top: ['50%', 0],
+        translateY: ['-50%', '-50%'],
+      })
       this.isFocused = true
     },
     blur() {
+      if (this.val) return
+      this.$anime({
+        targets: this.$refs.label,
+        duration: 100,
+        scale: [0.7, 1],
+        easing: 'easeOutQuad',
+        top: [0, '50%'],
+        translateY: ['-50%', '-50%'],
+      })
       this.isFocused = false
     },
   },
@@ -132,15 +147,13 @@ export default {
   align-items: center;
   .a-input-label {
     z-index: -1;
-    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.5, 1);
     position: absolute;
+    transform: translateY(-50%);
+    transform-origin: center left;
+    top: 50%;
   }
   .a-input-label--active {
-    position: absolute;
     z-index: 1 !important;
-    transform-origin: center left;
-    transform: translate3d(0%, -50%, 0) scale(0.7);
-    top: 0;
   }
   .a-input {
     padding: 0;
@@ -156,11 +169,12 @@ export default {
   }
   .a-bar {
     position: absolute;
-    height: 4px;
+    height: 3px;
     z-index: -1;
+    transform: translateX(-50%);
+    left: 50%;
     width: 100%;
     bottom: 0;
-    left: 0;
   }
 }
 </style>

@@ -165,9 +165,6 @@ export default {
     }
   },
   methods: {
-    fun() {
-      console.log(`fun`)
-    },
     changeWord() {
       let nextIndex =
         this.words.findIndex((word) => word === this.currentWord) + 1
