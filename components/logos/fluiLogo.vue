@@ -69,6 +69,10 @@ const props = defineProps({
 })
 </script>
 <script>
-export default {}
+export default {
+  mounted() {
+    console.log(this.$anime)
+  },
+}
 </script>
 <style lang="scss" scoped></style>
