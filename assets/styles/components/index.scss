@@ -12,16 +12,20 @@
   }
  }
 .a-ripple {
+  contain: strict;
+  transition: none !important;
   user-select: none;
   pointer-events: none;
     position: absolute !important; 
     border-radius: 50%;
+    will-change: opacity, transform;
   //  display: none;
   opacity: 0;
-    animation: ripple 0.4s ease;
-    background-color: rgba(255, 255, 255, 0.4);
+    animation: ripple 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: rgba(255, 255, 255, 0.25);
+    
   }
 .transition {
-  transition: all 0.25s ease-in;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
 }
