@@ -13,17 +13,12 @@
       :class="`a-input py-3`"
       v-model="val"
     />
-    <div
-      class="a-bar ro-5 background-grey background-grey-shade-6-gradient-bottom-left"
-    ></div>
+    <div class="a-bar ro-5 background-grey"></div>
     <transition @enter="onEnter" @leave="onLeave" :css="false">
-      <div
-        v-if="isFocused"
-        class="a-bar ro-5 background-purple background-purple-shade-6-gradient-bottom-left"
-      ></div>
+      <div v-show="isFocused" class="a-bar ro-5 background-purple"></div>
     </transition>
     <transition @enter="enterLoading" @leave="leaveLoading" :css="false">
-      <div v-if="loading" class="a-loading-bar"></div>
+      <div v-show="loading" class="a-loading-bar"></div>
     </transition>
   </div>
 </template>
@@ -61,16 +56,16 @@ export default {
       timeout: null,
     }
   },
-  watch: {
+  /*   watch: {
     val() {
       if (!this.isFocused || this.val) {
       }
-      /*  clearTimeout(this.timeout)
+       clearTimeout(this.timeout)
       this.timeout = setTimeout(() => {
         this.$emit('update:modelValue', this.val)
-      }, 1000) */
+      }, 1000)
     },
-  },
+  }, */
 
   methods: {
     enterLoading() {},
@@ -80,6 +75,7 @@ export default {
         targets: el,
         duration: 200,
         easing: 'easeOutCubic',
+        opacity: [1, 1],
         width: [0, '100%'],
         complete: done,
       })
@@ -115,26 +111,26 @@ export default {
     },
     focus() {
       if (this.val) return
-      this.$anime({
+      /*    this.$anime({
         targets: this.$refs.label,
-        duration: 100,
+        duration: 1000,
         scale: [1, 0.7],
-        easing: 'easeInQuad',
+        easing: 'linear',
         top: ['50%', 0],
         translateY: ['-50%', '-50%'],
-      })
+      }) */
       this.isFocused = true
     },
     blur() {
       if (this.val) return
-      this.$anime({
+      /*      this.$anime({
         targets: this.$refs.label,
-        duration: 100,
+        duration: 1000,
         scale: [0.7, 1],
-        easing: 'easeOutQuad',
+        easing: 'linear',
         top: [0, '50%'],
         translateY: ['-50%', '-50%'],
-      })
+      }) */
       this.isFocused = false
     },
   },
@@ -144,7 +140,8 @@ export default {
 .a-input-box {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  justify-content: center;
   .a-input-label {
     z-index: -1;
     position: absolute;
@@ -171,10 +168,6 @@ export default {
     position: absolute;
     height: 3px;
     z-index: -1;
-    transform: translateX(-50%);
-    left: 50%;
-    width: 100%;
-    bottom: 0;
   }
 }
 </style>

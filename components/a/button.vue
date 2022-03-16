@@ -50,13 +50,13 @@ export default {
       let style = {
         default: {
           light: {
-            bloom: `bloom-1-dark-alpha-7 bloom-4-${color}-hover bloom-2-${color}-active`,
+            bloom: `bloom-1-dark-alpha-7 bloom-4-${color}-hover `,
             textColor: `text-${color}-tint-8 text-light-hover`,
             backgroundColor: `background-${color}`,
             border: `background-${color}-tint-5-gradient-top-left background-${color}-shade-5`,
           },
           dark: {
-            bloom: ` bloom-3-${color}-hover bloom-2-${color}-active`,
+            bloom: ` bloom-3-${color}-hover `,
             textColor: `text-${color}-tint-8 text-light-hover`,
             backgroundColor: `background-${color}-shade-3`,
             border: `background-${color}-tint-4-gradient-top-left background-${color}-shade-4`,
@@ -64,7 +64,7 @@ export default {
         },
         gradient: {
           light: {
-            bloom: `bloom-1-dark-alpha-7 bloom-4-${color}-hover bloom-2-${color}-active`,
+            bloom: `bloom-1-dark-alpha-7 bloom-4-${color}-hover `,
             textColor: `text-${color}-tint-8 text-light-hover`,
             backgroundColor: `background-${color}-tint-5-gradient-top-left background-${color}-shade-5`,
             border: ``,
@@ -126,7 +126,7 @@ export default {
   user-select: none;
   transition: all 0.25s ease;
   &:hover {
-    transform: translate3D(0, -2px, 0) scale(1.1);
+    transform: translate3d(0, -2px, 0) scale(1.01);
   }
   backdrop-filter: blur(4px);
 }

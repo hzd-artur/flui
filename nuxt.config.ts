@@ -4,8 +4,8 @@ import { defineNuxtConfig } from 'nuxt3'
 export default defineNuxtConfig({
   // Uncoment to develop
   // Comment to build
-  ssr: false,
-  dev: true,
+  /*   ssr: false,
+  dev: true, */
   css: ['@/assets/main.scss'],
   meta: {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
