@@ -9,28 +9,23 @@
   >
     <g
       :class="color[darkMode ? 'dark' : 'light']"
-      v-anime="
-        (anime) => ({
-          fillOpacity: [0, 1],
-          delay: 2000,
-          duration: 2000,
-          easing: 'easeInOutSine',
-        })
-      "
+      v-anime="{
+        fillOpacity: [0, 1],
+        delay: 2000,
+        duration: 2000,
+        easing: 'easeInOutSine',
+      }"
     >
       <g
-        ref="flui"
-        v-anime="
-          (anime) => ({
-            targets: $refs.flui.childNodes,
-            strokeDashoffset: [anime.setDashoffset, 0],
-            delay: anime.stagger(400, { start: 800 }),
-            loop: 2,
-            direction: 'alternate',
-            duration: 1000,
-            easing: 'easeInOutSine',
-          })
-        "
+        v-anime="{
+          target: 'childNodes',
+          strokeDashoffset: [$anime.setDashoffset, 0],
+          delay: $anime.stagger(400, { start: 800 }),
+          loop: 2,
+          direction: 'alternate',
+          duration: 1000,
+          easing: 'easeInOutSine',
+        }"
       >
         <path
           d="M56.9,62.51c-2.97,0-5.73-1.88-6.72-4.85c-1.24-3.71,0.77-7.73,4.48-8.96L90.9,36.61
@@ -70,6 +65,16 @@ const props = defineProps({
 </script>
 <script>
 export default {
+  data() {
+    return {
+      anime: this.$anime,
+    }
+  },
+  computed: {
+    childNodes() {
+      return this.$refs
+    },
+  },
   mounted() {
     console.log(this.$anime)
   },
