@@ -23,9 +23,9 @@
         <template #0>
           <div data-scroll data-scroll-speed="3">
             <logos-flui-logo
-              class="bloom-1-dark-alpha-6"
+              class="bloom-2-dark-alpha-6"
               :color="{
-                light: 'background-purple-tint-6',
+                light: 'background-purple-tint-9',
                 dark: 'background-purple-tint-4',
               }"
             ></logos-flui-logo>
@@ -36,11 +36,7 @@
             class="pa-lg-20 di-flex fl-column ju-center al-center po-relative fs-md-9 fs-8 mb-4 text-light bloom-1-dark"
           >
             <div>Making</div>
-            <div
-              data-scroll
-              data-scroll-speed="2"
-              class="wi-100 di-flex al-center ju-center ov-hidden"
-            >
+            <div class="wi-100 di-flex al-center ju-center ov-hidden">
               <transition-group
                 tag="div"
                 class="po-relative py-3 wi-100 di-flex fl-column ju-center al-center"
@@ -176,10 +172,8 @@ export default {
       }
     },
   },
-  mounted() {
-    /*    setInterval(() => {
-      this.changeWord()
-    }, 3000) */
+  created() {
+    console.log(this.$anime)
   },
 }
 </script>
