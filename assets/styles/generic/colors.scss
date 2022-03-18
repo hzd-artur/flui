@@ -1,7 +1,6 @@
 @mixin background-color($color_value) {
   background-color: $color_value ;
   fill: $color_value ;
-  backdrop-filter: blur(4px);
  
 }
 
@@ -10,7 +9,7 @@
   caret-color: $color_value ;
 }
 @mixin stroke($color_value) {
-  stroke: $color_value ;
+  stroke: $color_value;
 }
 @mixin bloom($color_value, $i) {
 //  -webkit-box-shadow: 0px #{$i * 2}px #{$i * 4}px 0px $color_value; 

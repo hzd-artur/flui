@@ -11,14 +11,14 @@
   background-clip: text;
   -webkit-background-clip: text;
   color: rgba(0, 0, 0, 0);
-  //backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 
 }
 
 @mixin background-linear($color_value, $direction_value) {
 
   background-image: linear-gradient($direction_value, scale-color($color_value, $alpha: -100% ), $color_value 130%) !important;
-  // backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 
 }
 
@@ -27,7 +27,7 @@
   background-clip: text;
   -webkit-background-clip: text;
   color: rgba(0, 0, 0, 0);
-  //backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 
 }
 @each $selector_name, $selector_value in $selectors {
