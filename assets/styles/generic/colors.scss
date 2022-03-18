@@ -1,7 +1,8 @@
 @mixin background-color($color_value) {
   background-color: $color_value ;
   fill: $color_value ;
-  backdrop-filter: blur(4px);
+  // Causes GPU to go nuts
+  //backdrop-filter: blur(4px);
  
 }
 
