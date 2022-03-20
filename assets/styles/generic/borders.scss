@@ -40,6 +40,7 @@
     mask: linear-gradient(#fff, #fff) padding-box, radial-gradient(120% 160%, #ffffff 44%,  #ffffff00);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
+    contain: strict;
   }
 }
 @each $selector_name, $selector_value in $selectors {

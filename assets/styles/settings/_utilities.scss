@@ -393,6 +393,15 @@ $utilities: (
       underline,
     ),
   ),
+  "background-clip": (
+    properties: background-clip -webkit-background-clip,
+    values: (
+      border-box,
+      padding-box,
+      content-box,
+      text
+    )
+  ),
   "fs": (
     properties: font-size line-height,
     values: $font-sizes,

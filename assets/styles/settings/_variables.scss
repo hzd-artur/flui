@@ -3,10 +3,7 @@ $selectors: (
   "-hover": ':hover',
   "-active": ':active',
   "-focus": ':focus',
-  "-disabled": ':disabled',
   "-before": '::before',
-
-
 ) !default;
 
 $rounded: (
@@ -20,14 +17,13 @@ $rounded: (
   "7": 50px,
   "8": 81px,
   "9": 131px,
-  "10": 212px,
   "pill": 9999px,
   "circle": 50%,
 ) !default;
 
 $stroke-gap: 1;
 $stroke-widths: () !default;
-@for $i from 0 through 10 {
+@for $i from 0 through 9 {
   $stroke-widths: map-merge(
     $stroke-widths,
     (
@@ -54,8 +50,8 @@ $grid-breakpoints: (
   "": 0px,
   "sm": 600px,
   "md": 960px,
-  "lg": 1280px - 16px,
-  "xl": 1920px - 16px,
+  "lg": 1280px,
+  "xl": 1920px,
 ) !default;
 
 $font-weights: (
@@ -68,7 +64,6 @@ $font-weights: (
   "7": 700,
   "8": 800,
   "9": 900,
-  "10": 1000,
 ) !default;
 
 $font-sizes: (
@@ -81,7 +76,6 @@ $font-sizes: (
   "7": 3rem,
   "8": 3.75rem,
   "9": 4.5rem,
-  "10": 6rem,
 ) !default;
 $border-width: 1px;
 $border-positions: 

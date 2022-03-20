@@ -4,16 +4,16 @@
  $c: $color;
   $colors: ('': $c) !default;
 
-  @for $i from 1 through 10 {
+  @for $i from 1 through 9 {
     $colors: map-merge($colors, ('-tint-#{$i}': scale-color($c, $lightness: $i * 10%)))
   }
-  @for $i from 1 through 10 {
+  @for $i from 1 through 9 {
     $colors: map-merge($colors, ('-shade-#{$i}': scale-color($c, $lightness: $i * -10%)))
   }
-  @for $i from 0 through 10 {
+  @for $i from 0 through 9 {
     $colors: map-merge($colors, ('-alpha-#{$i}':  scale-color($c, $alpha: - $i * 10%)))
   }
-  @for $i from 1 through 10 {
+  @for $i from 1 through 9 {
     $colors: map-merge($colors, ('-tone-#{$i}':  scale-color($c, $saturation: - $i * 10%)))
   }
 

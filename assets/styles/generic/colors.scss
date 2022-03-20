@@ -3,7 +3,6 @@
   fill: $color_value ;
   // Causes GPU to go nuts
   //backdrop-filter: blur(4px);
- 
 }
 
 @mixin text-color($color_value) {
@@ -27,20 +26,12 @@ Selectors: [ex: :hover, :active] ->
                                    Colors: color_name: [ex: blue, orange]
                                            color_values: [
                                              {
-                                               color_modifier: [ex: pale, lighten, darken]
+                                               color_modifier: [ex: tint, tone, alpha]
                                                color_hex: values for #ff0000 -> [ex: #ee0000, #ff000066, #ff1111]
                                              }
                                            ] -> 
                                                                                                            
- */       
- .transparent {
-   background: transparent !important; 
-   background-origin: padding-box !important;
- }           
- .transparent-hover:hover {
-  background: transparent !important; 
-  background-origin: padding-box !important;
-}                       
+ */                            
  
 @each $selector_name, $selector_value in $selectors {
   @each $color_name, $color_values in $colors {
@@ -56,7 +47,7 @@ Selectors: [ex: :hover, :active] ->
           @include stroke($color_hex);
         }
 
-        @for $i from 1 through 10 {
+        @for $i from 1 through 9 {
           .app .bloom-#{$i}-#{$color_name}#{$color_modifier}#{$selector_name}#{$selector_value} {
             @include bloom($color_hex, $i);
           }
